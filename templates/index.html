@@ -1,0 +1,22 @@
+<h2>📋 Student Records</h2>
+<a href="/add">➕ Add Student</a>
+<table border="1">
+    <tr>
+        <th>Reg No</th><th>Name</th><th>Dept</th><th>CGPA</th><th>Arrear</th><th>Eligible</th><th>Risk</th><th>Actions</th>
+    </tr>
+    {% for student in students %}
+    <tr>
+        <td>{{ student['regno'] }}</td>
+        <td>{{ student['name'] }}</td>
+        <td>{{ student['dept'] }}</td>
+        <td>{{ student['cgpa'] }}</td>
+        <td>{{ student['hist_arrear'] }}</td>
+        <td>{{ student['placement_eligible'] }}</td>
+        <td>{{ student['risk_group'] }}</td>
+        <td>
+            <a href="/update/{{ student['regno'] }}">✏️ Edit</a> |
+            <a href="/delete/{{ student['regno'] }}">🗑 Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
